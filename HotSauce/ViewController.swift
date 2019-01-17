@@ -6,19 +6,21 @@
 //  Copyright © 2019 Instructor. All rights reserved.
 //
 
-import UIKit
+import UIKit;
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var mySwitch: UISwitch!;
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     @IBAction func switchPressed(_ sender: UISwitch) {
-        perform(#selector(confoundThem), with: self, afterDelay: 3);
+        //Call another method of the ViewController (namely, the confoundThem method).
+        perform(#selector(confoundThem), with: nil, afterDelay: 3);
+  
         if sender.isOn {
             view.backgroundColor = .red;
         }
@@ -29,13 +31,17 @@ class ViewController: UIViewController {
         mySwitch.setOn(!mySwitch.isOn, animated: true);
         
         if !mySwitch.isOn {
-            //view.backgroundColor = .white;  //suddenly
+            //view.backgroundColor = .white; //suddenly
+            
+            //A type method with five arguments.
+            //The fourth argument is a closure.
+       
             UIView.animate(
                 withDuration: 3,
                 delay: 3,
                 options: [],
                 animations: {
-                    self.view.backgroundColor = .white;
+                    self.view.backgroundColor = .white; //gradually
                 },
                 completion: nil
             );
